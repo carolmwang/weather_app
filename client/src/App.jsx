@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './index.css';
 
 import Header from './components/Header';
 import Main from './components/Main';
@@ -14,15 +14,13 @@ class App extends Component {
       today: '',
       weather: '',
     };
-    this.handleChange = this.handleChange.bind(this);
     this.updateWeather = this.updateWeather.bind(this);
   }
-
 
   componentDidMount() {
     let date = new Date();
     this.setState({
-      today: (date.getMonth()+1) +  "/" + date.getDate() + "/" + date.getFullYear(),
+      today: (date.getMonth()+1) +  "." + date.getDate() + "." + date.getFullYear(),
     })
   }
 
@@ -34,17 +32,9 @@ class App extends Component {
     })
   }
 
-  handleChange(ev) {
-    ev.preventDefault();
-    const { name, value} = ev.target;
-    this.setState({
-      [name]: value,
-    })
-  }
-
   render() {
     return (
-      <div>
+      <div className="main">
       <Header date={this.state.today} location={this.state.city} country={this.state.weather.country}/>
       <Main updateWeather={this.updateWeather} location={this.state.location}/>
       {this.state.weather ? <Weather weather={this.state.weather}/> : ''}

@@ -4,9 +4,9 @@ import React from 'react';
 
 function Header(props) {
   return(
-    <div>
-      {props.location ? <h1> Weather in {props.location}, {props.country} </h1> : <h1> Weather </h1>}
-      <p>Today's Date: {props.date}</p>
+    <div className="background">
+      {props.location ? <h1 className="header"> Weather in {props.location}, {props.country} </h1> : <h1 className="header"> Weather </h1>}
+      <p className="date">{props.date}</p>
     </div>
   )
 }

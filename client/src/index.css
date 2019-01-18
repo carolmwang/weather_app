@@ -12,3 +12,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.main {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.header {
+  margin: 0;
+  font-size: 5em;
+  color: rgb(255, 255, 255);
+  background: rgba(31, 133, 46, 0.342);
+}
+
+.date {
+  font-weight: bold;
+  font-size: 4rem;
+  color: rgb(255, 255, 255);
+  background: rgba(31, 133, 46, 0.342);
+  margin: 0;
+  
+}
+
+.background {
+  height: 400px;
+  background-image: url("./image/pexels-photo-1131458.jpeg")
+  
+}
+
+.weather {
+  text-align: center;
+  margin: 10px 5px;
+  padding: 10px;
+  display: inline;
+  background: rgba(33, 168, 54, 0.342);
+}
+
+
+.form {
+  margin: 30px auto;
+  padding: 0px;
+  height: 30%;
+  width: 30%;
+}

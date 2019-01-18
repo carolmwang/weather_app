@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { weatherByZip, weatherByCity } from './../services/api';
+import { weatherByZip } from './../services/api';
 
 class Main extends Component {
   constructor(props) {
@@ -26,6 +26,7 @@ class Main extends Component {
         city: data.name,
         temperature: Math.ceil((data.main.temp*(9/5)) - 459.67),
         country: data.sys.country,
+        description: data.weather,
       });
     this.props.updateWeather(this.state);
       
@@ -42,14 +43,16 @@ class Main extends Component {
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
-        <label> Zipcode </label>
+      <form onSubmit={this.handleSubmit} className="form">
+        <label> Enter your Zipcode: </label>
+        <br />
+        <br />
         <input 
           type="text" 
           name="zipcode" 
           value={this.state.zipcode} 
           onChange={this.handleChange}/>
-
+        <br />
         <input type="submit"
         value="submit" />
       </form>
