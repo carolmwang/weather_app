@@ -3,19 +3,19 @@ import './App.css';
 
 import Header from './components/Header';
 import Main from './components/Main';
+import Weather from './components/Weather';
 
-import {
-  weatherByCity,
-  weatherByZip,
-} from './services/api';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       location: '',
+      today: '',
+      weather: '',
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.updateWeather = this.updateWeather.bind(this);
   }
 
 
@@ -26,21 +26,28 @@ class App extends Component {
     })
   }
 
-  handleSubmit(ev) {
+
+  updateWeather(weather) {
+    this.setState({
+      city: weather.city,
+      weather: weather,
+    })
+  }
+
+  handleChange(ev) {
     ev.preventDefault();
-    weatherByZip()
-    .then(data => {
-      this.setState({
-        zipcode: data.zipcode
-      })
+    const { name, value} = ev.target;
+    this.setState({
+      [name]: value,
     })
   }
 
   render() {
     return (
       <div>
-      <Header date={this.state.today} location={this.state.location}/>
-      <Main handleSubmit={this.handleSubmit}/>
+      <Header date={this.state.today} location={this.state.city} country={this.state.weather.country}/>
+      <Main updateWeather={this.updateWeather} location={this.state.location}/>
+      {this.state.weather ? <Weather weather={this.state.weather}/> : ''}
       </div>
       
     );

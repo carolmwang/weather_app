@@ -5,7 +5,7 @@ import React from 'react';
 function Header(props) {
   return(
     <div>
-      {props.location ? <h1> Weather in {props.location} </h1> : <h1> Weather </h1>}
+      {props.location ? <h1> Weather in {props.location}, {props.country} </h1> : <h1> Weather </h1>}
       <p>Today's Date: {props.date}</p>
     </div>
   )
